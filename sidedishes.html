@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>La Dambana</title>
+  <link rel="stylesheet" href="styles1.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+<div class="navbar">
+  <div class="logo">La Dambana</div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="popular.html">Popular</a></li>
+      <li><a href="starters.html">Starters</a></li>
+      <li><a href="maincourse.html">Main Course</a></li>
+      <li><a href="sidedishes.html" class="active3">Side Dishes</a></li>
+      <li><a href="drinks.html">Drinks</a></li>
+      <li><a href="desserts.html">Desserts</a></li>
+      <li><a href="#">Bundles</a></li>
+    </ul>
+    <div class="cart">🛒</div>
+  </div>
+</div>
+
+
+
+<div class="site-wrapper">
+  <!-- Your page content here -->
+</div>
+
+
+
+<main class="menu-section">
+  <div class="menu-info">
+   <h1>Side Dishes</h1>
+    <p>Complement every meal with flavorful Filipino side dishes that add the perfect balance of taste, texture, and tradition.</p>
+    <div class="thumbnails">
+      <img src="togueomelette.png" alt="Food 1" onclick="highlightImage(0)" />
+      <img src="ensalatang talong.png" alt="Food 2" onclick="highlightImage(1)" />
+      <img src="lumpiang sariwa.png" alt="Food 3" onclick="highlightImage(2)" />
+      <img src="kamatisitlogmaalat.png" alt="Food 4" onclick="highlightImage(3)" />
+    </div>
+  </div>
+
+  <div class="highlight" onclick="cycleImage()">
+    <img id="mainImage" src="talbos.png" alt="Highlight Food" />
+  </div>
+</main>
+
+
+
+<!-- Food Gallery with container -->
+  <section id="food-gallery" class="food-gallery">
+    <div class="container">
+      <div class="food-grid">
+
+        <div class="food-item">
+          <img src="atchara.png" alt="Atchara">
+          <h3>Atchara</h3>
+          <p class="price">₱150</p>
+          <button class="add-btn">Add Now</button>
+        </div>
+
+        <div class="food-item">
+          <img src="ensaladongmangga.png" alt="Ensaladang Mangga">
+          <h3>Ensaladang Mangga</h3>
+          <p class="price">₱160</p>
+          <button class="add-btn">Add Now</button>
+        </div>
+
+        <div class="food-item">
+          <img src="kangkongtofu.png" alt="Ginisang Kangkong with Tofu">
+          <h3>Ginisang Kangkong with Tofu</h3>
+          <p class="price">₱180</p>
+          <button class="add-btn">Add Now</button>
+        </div>
+
+        <div class="food-item">
+          <img src="ensalatang talong.png" alt="Ensaladang Talong">
+          <h3>Ensaladang Talong</h3>
+          <p class="price">₱200</p>
+          <button class="add-btn">Add Now</button>
+        </div>
+
+        <div class="food-item">
+          <img src="talbos.png" alt="Talbos ng Kamote Salad">
+          <h3>Talbos ng Kamote Salad</h3>
+          <p class="price">₱170</p>
+          <button class="add-btn">Add Now</button>
+        </div>
+
+        <div class="food-item">
+          <img src="togueomelette.png" alt="Togue Omelette">
+          <h3>Togue Omelette</h3>
+          <p class="price">₱140</p>
+          <button class="add-btn">Add Now</button>
+        </div>
+
+        <div class="food-item">
+          <img src="lumpiang sariwa.png" alt="Lumpiang Sariwa">
+          <h3>Lumpiang Sariwa</h3>
+          <p class="price">₱140</p>
+          <button class="add-btn">Add Now</button>
+        </div> 
+
+        <div class="food-item">
+          <img src="kamatisitlogmaalat.png" alt="Kamatis at Itlog Maalat">
+          <h3>Kamatis at Itlog Maalat</h3>
+          <p class="price">₱140</p>
+          <button class="add-btn">Add Now</button>
+        </div> 
+
+
+  <!-- JavaScript inside HTML -->
+  <script>
+    const images = ["dish3.svg", "dish4.svg", "dish5.svg", "dish6.svg"];
+    let currentIndex = 0;
+
+    function highlightImage(index) {
+      currentIndex = index;
+      document.getElementById("mainImage").src = images[currentIndex];
+    }
+
+    function cycleImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      document.getElementById("mainImage").src = images[currentIndex];
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>La Dambana</title>
+  <link rel="stylesheet" href="styles1.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+<div class="navbar">
+  <div class="logo">La Dambana</div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="popular.html" class="active">Popular</a></li>
+      <li><a href="starters.html">Starters</a></li>
+      <li><a href="maincourse.html">Main Course</a></li>
+      <li><a href="sidedishes.html">Side Dishes</a></li>
+      <li><a href="drinks.html">Drinks</a></li>
+      <li><a href="desserts.html">Desserts</a></li>
+      <li><a href="#">Bundles</a></li>
+    </ul>
+    <a href="cart.html" class="cart">🛒</a>
+  </div>
+</div>
+
+
+
+<div class="site-wrapper">
+  <!-- Your page content here -->
+</div>
+
+
+
+<main class="menu-section">
+  <div class="menu-info">
+   <h1>Popular</h1>
+    <p>Explore the most loved Filipino dishes that have become a symbol of our rich and diverse culture.</p>
+    <div class="thumbnails">
+      <img src="lecheflan.png" alt="Food 1" onclick="highlightImage(0)" />
+      <img src="avocadoshake.png" alt="Food 2" onclick="highlightImage(1)" />
+      <img src="ensalatang talong.png" alt="Food 3" onclick="highlightImage(2)" />
+      <img src="lumpia.png" alt="Food 4" onclick="highlightImage(3)" />
+    </div>
+  </div>
+
+  <div class="highlight" onclick="cycleImage()">
+    <img id="mainImage" src="dish3.svg" alt="Highlight Food" />
+  </div>
+</main>
+
+
+
+<!-- Food Gallery with container -->
+  <section id="food-gallery" class="food-gallery">
+    <div class="container">
+      <div class="food-grid">
+
+        <div class="food-item">
+          <img src="lumpia.png" alt="Lumpiang Shanghai">
+          <h3>Lumpiang Shanghai</h3>
+          <p class="price">₱150</p>
+          <button class="add-btn">Add Now</button>
+        </div>
+
+        <div class="food-item">
+          <img src="dish4.svg" alt="Adobo">
+          <h3>Adobo</h3>
+          <p class="price">₱160</p>
+          <button class="add-btn">Add Now</button>
+        </div>
+
+        <div class="food-item">
+          <img src="dish5.svg" alt="Kare-Kare">
+          <h3>Kare-Kare</h3>
+          <p class="price">₱180</p>
+          <button class="add-btn">Add Now</button>
+        </div>
+
+        <div class="food-item">
+          <img src="ensalatang talong.png" alt="Ensaladang Talong">
+          <h3>Ensaladang Talong</h3>
+          <p class="price">₱200</p>
+          <button class="add-btn">Add Now</button>
+        </div>
+
+        <div class="food-item">
+          <img src="halohalo.png" alt="Halo-Halo">
+          <h3>Halo-Halo</h3>
+          <p class="price">₱170</p>
+          <button class="add-btn">Add Now</button>
+        </div>
+
+        <div class="food-item">
+          <img src="avocadoshake.png" alt="Avocado Shake">
+          <h3>Avocado Shake</h3>
+          <p class="price">₱140</p>
+          <button class="add-btn">Add Now</button>
+        </div>
+
+        <div class="food-item">
+          <img src="lecheflan.png" alt="Leche Flan">
+          <h3>Leche Flan</h3>
+          <p class="price">₱140</p>
+          <button class="add-btn">Add Now</button>
+        </div> 
+
+        <div class="food-item">
+          <img src="chocolavackae.png" alt="Tablea Choco Lava Cake">
+          <h3>Tablea Choco Lava Cake</h3>
+          <p class="price">₱140</p>
+          <button class="add-btn">Add Now</button>
+        </div> 
+
+
+<script>
+  const buttons = document.querySelectorAll(".add-btn");
+
+  buttons.forEach(button => {
+    button.addEventListener("click", function () {
+      const foodItem = this.closest(".food-item");
+      const name = foodItem.querySelector("h3").innerText;
+      const price = parseFloat(foodItem.querySelector(".price").innerText.replace("₱", ""));
+      const image = foodItem.querySelector("img").src;
+
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      const existingItem = cart.find(item => item.name === name);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({ name, price, image, quantity: 1 });
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${name} added to cart.`);
+    });
+  });
+</script>
+
+
+  <!-- JavaScript inside HTML -->
+  <script>
+    const images = ["dish3.svg", "dish4.svg", "dish5.svg", "dish6.svg"];
+    let currentIndex = 0;
+
+    function highlightImage(index) {
+      currentIndex = index;
+      document.getElementById("mainImage").src = images[currentIndex];
+    }
+
+    function cycleImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      document.getElementById("mainImage").src = images[currentIndex];
+    }
+  </script>
+
+</body>
+</html>

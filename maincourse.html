@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>La Dambana</title>
+  <link rel="stylesheet" href="styles1.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+<div class="navbar">
+  <div class="logo">La Dambana</div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="popular.html">Popular</a></li>
+      <li><a href="starters.html">Starters</a></li>
+      <li><a href="maincourse.html">Main Course</a></li>
+      <li><a href="sidedishes.html">Side Dishes</a></li>
+      <li><a href="drinks.html">Drinks</a></li>
+      <li><a href="desserts.html">Desserts</a></li>
+      <li><a href="#">Bundles</a></li>
+    </ul>
+    <div class="cart">🛒</div>
+  </div>
+</div>
+
+
+
+<div class="site-wrapper">
+  <!-- Your page content here -->
+</div>
+
+
+
+<main class="menu-section">
+  <div class="menu-info">
+   <h1>Main Course</h1>
+    <p>Savor the heart of Filipino cuisine with hearty main dishes that bring families together and celebrate tradition in every bite.</p>
+    <div class="thumbnails">
+      <img src="dish6.svg" alt="Food 1" onclick="highlightImage(0)" />
+      <img src="dish4.svg" alt="Food 2" onclick="highlightImage(1)" />
+      <img src="crispyypata.png" alt="Food 3" onclick="highlightImage(2)" />
+      <img src="dish5.svg" alt="Food 4" onclick="highlightImage(3)" />
+    </div>
+  </div>
+
+  <div class="highlight" onclick="cycleImage()">
+    <img id="mainImage" src="dish8.svg" alt="Highlight Food" />
+  </div>
+</main>
+
+
+
+<!-- Food Gallery with container -->
+  <section id="food-gallery" class="food-gallery">
+    <div class="container">
+      <div class="food-grid">
+
+        <div class="food-item">
+          <img src="halabosnahipon.png" alt="Halabos na Hipon">
+          <h3>Halabos na Hipon</h3>
+          <p class="price">₱150</p>
+          <button class="add-btn">Add Now</button>
+        </div>
+
+        <div class="food-item">
+          <img src="pancit.png" alt="Pancit Guisado">
+          <h3>Pancit Guisado</h3>
+          <p class="price">₱160</p>
+          <button class="add-btn">Add Now</button>
+        </div>
+
+        <div class="food-item">
+          <img src="bicolexpress.png" alt="Bicol Express">
+          <h3>Bicol Express</h3>
+          <p class="price">₱180</p>
+          <button class="add-btn">Add Now</button>
+        </div>
+
+        <div class="food-item">
+          <img src="dish6.svg" alt="Lechon Kawali">
+          <h3>Lechon Kawali</h3>
+          <p class="price">₱200</p>
+          <button class="add-btn">Add Now</button>
+        </div>
+
+        <div class="food-item">
+          <img src="crispyypata.png" alt="Crispy Pata">
+          <h3>Crispy Pata</h3>
+          <p class="price">₱170</p>
+          <button class="add-btn">Add Now</button>
+        </div>
+
+        <div class="food-item">
+          <img src="dish4.svg" alt="Adobo">
+          <h3>Adobo</h3>
+          <p class="price">₱140</p>
+          <button class="add-btn">Add Now</button>
+        </div>
+
+        <div class="food-item">
+          <img src="dish8.svg" alt="Tinola">
+          <h3>Tinola</h3>
+          <p class="price">₱140</p>
+          <button class="add-btn">Add Now</button>
+        </div> 
+
+        <div class="food-item">
+          <img src="dish5.svg" alt="Kare-Kare">
+          <h3>Kare-Kare</h3>
+          <p class="price">₱140</p>
+          <button class="add-btn">Add Now</button>
+        </div> 
+
+
+  <!-- JavaScript inside HTML -->
+  <script>
+    const images = ["dish3.svg", "dish4.svg", "dish5.svg", "dish6.svg"];
+    let currentIndex = 0;
+
+    function highlightImage(index) {
+      currentIndex = index;
+      document.getElementById("mainImage").src = images[currentIndex];
+    }
+
+    function cycleImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      document.getElementById("mainImage").src = images[currentIndex];
+    }
+  </script>
+
+</body>
+</html>
